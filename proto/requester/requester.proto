@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "example.com/benchmarker/proto/requester";
+
+package requester;
+
+service Requester{
+  rpc Dispatch(DispatchRequest) returns (DispatchReply){}
+}
+
+message DispatchRequest{
+  string address = 1;
+}
+
+message DispatchReply{
+  uint32 status = 1;
+  string message   = 2;
+  uint32 latency_ms = 3;
+}
